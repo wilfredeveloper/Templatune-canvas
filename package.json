@@ -1,0 +1,25 @@
+{
+  "name": "static-website-template",
+  "version": "1.0.0",
+  "description": "A template for my static websites",
+  "main": "index.js",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Victor-Gitahi/static-website-template.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Victor-Gitahi/static-website-template/issues"
+  },
+  "homepage": "https://github.com/Victor-Gitahi/static-website-template#readme",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.8.3",
+    "parcel": "^2.8.3"
+  }
+}
