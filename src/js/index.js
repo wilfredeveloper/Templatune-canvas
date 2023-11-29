@@ -1,18 +1,24 @@
 // Create a new canvas element
 const canvas = document.createElement('canvas');
-canvas.width = 1080;
-canvas.height = 1080;
+canvas.width = 600;
+canvas.height = 600;
 const ctx = canvas.getContext('2d');
+
+document.body.appendChild(canvas);
 
 // Load the background image
 const backgroundImage = new Image();
 backgroundImage.src = '../bg.jpg';
 backgroundImage.onload = function() {
-    ctx.drawImage(backgroundImage, 0, 0, 1080, 1080);
+    ctx.drawImage(backgroundImage, 0, 0, 600, 600);
     generatePoster();
 }
 
 function generatePoster() {
+    // clear canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(backgroundImage, 0, 0, 600, 600);
+
     // Add the text elements
     ctx.fillStyle = '#fff';
     ctx.font = '36px Arial';
@@ -55,5 +61,5 @@ function generatePoster() {
     // link.click();
 }
 
-generatePoster();
+document.addEventListener('change', generatePoster);
 // Call generatePoster after the image has been loaded
