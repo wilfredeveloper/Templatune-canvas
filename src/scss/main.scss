@@ -1,10 +1,7 @@
-:root {
-    --primary-color: #2A83FC;
-    --secondary-color: #080606;
-    --font-family-main: 'Inter';
-    --font-family-alt: 'Cascadia Code';
-}
-
+$primary-color: #2A83FC;
+$secondary-color: #080606;
+$font-family-main: 'Inter';
+$font-family-alt: 'Cascadia Code';
 *,
 *::before,
 *::after {
@@ -15,7 +12,7 @@
 
 body {
     background-color: #ffd3d3;
-    font-family: var(--font-family-main);
+    font-family: $font-family-main;
     font-size: 16px;
     line-height: 1.5;
     color: #fff;
@@ -49,20 +46,19 @@ body {
     top: 160px;
     width: 390px;
     height: 60px;
-}
-
-.university-name {
-    color: var(--primary-color);
-    margin-left: 60px;
-    font-size: 22px;
-    margin-top: -15px;
+    .university-name {
+        color: $primary-color;
+        margin-left: 60px;
+        font-size: 22px;
+        margin-top: -15px;
+    }
 }
 
 .event-type,
 .section-heading,
 .venue {
-    font-family: var(--font-family-alt);
-    color: var(--primary-color);
+    font-family: $font-family-alt;
+    color: $primary-color;
     font-size: 22px;
 }
 
@@ -71,19 +67,17 @@ body {
 }
 
 .title-sub {
-    font-family: var(--font-family-alt);
-    color: var(--secondary-color);
+    font-family: $font-family-alt;
+    color: $secondary-color;
     top: 380px;
-}
-
-.title {
-    font-size: 36px;
-    color: var(--primary-color);
-}
-
-.sub-title {
-    font-size: 20px;
-    max-width: 70%;
+    .title {
+        font-size: 36px;
+        color: $primary-color;
+    }
+    .sub-title {
+        font-size: 20px;
+        max-width: 70%;
+    }
 }
 
 .section-heading {
@@ -91,8 +85,8 @@ body {
 }
 
 .body-text {
-    font-family: var(--font-family-alt);
-    color: var(--secondary-color);
+    font-family: $font-family-alt;
+    color: $secondary-color;
     top: 560px;
     max-width: 40%;
 }
@@ -103,8 +97,8 @@ body {
 
 .date,
 .time {
-    font-family: var(--font-family-alt);
-    color: var(--secondary-color);
+    font-family: $font-family-alt;
+    color: $secondary-color;
     bottom: 190px;
 }
 
@@ -119,6 +113,6 @@ body {
 
 .social-handle {
     left: 350px;
-    color: var(--secondary-color);
-    font-family: var(--font-family-alt);
+    color: $secondary-color;
+    font-family: $font-family-alt;
 }
