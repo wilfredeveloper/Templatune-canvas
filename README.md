@@ -1,28 +1,37 @@
-# Project Title: Poster Generator
+# Templatune
 
-This project is a simple Node.js application that generates a poster image with predefined text and a background image. The generated poster is saved as a PNG file.
+This project is a simple webpage that uses SCSS for styling and JavaScript for functionality. The webpage includes a button that, when clicked, captures the current state of a specific element on the page and downloads it as a JPEG image.
 
-## Features
+## Getting Started
 
-- Loads a background image onto a canvas
-- Adds predefined text onto the canvas at specified positions
-- Checks if a file named 'poster.png' already exists
-- If 'poster.png' does not exist, it saves the canvas as a PNG file with this name
-- If 'poster.png' does exist, it logs a message stating that the file already exists
+To get a local copy up and running, follow these steps:
 
-## How to Use
+1. Clone the repository to your local machine.
+2. Open the HTML file in your preferred browser.
 
-1. Ensure you have Node.js installed on your machine.
-2. Clone this repository.
-3. Navigate to the project directory and run `npm install` to install the necessary dependencies.
-4. Run `node app.js` (or the name of your main JavaScript file) to generate the poster.
+## Prerequisites
 
-## Dependencies
+This project uses SCSS for styling, so you'll need a way to compile the SCSS into CSS. You can use a tool like [Node-sass](https://www.npmjs.com/package/node-sass) or a task runner like [Gulp](https://gulpjs.com/).
 
-- [canvas](https://www.npmjs.com/package/canvas): A package that provides a way to create, manipulate, and save images and other graphics in Node.js.
+## Usage
 
-## Future Improvements
+The main functionality of the webpage is contained within the `captureButton` click event listener. When the button is clicked, the `html2canvas` library is used to capture the current state of the `.canvas` element and convert it into a canvas. The canvas is then converted into a JPEG image and downloaded.
 
-- Add the ability to customize the text and images used in the poster.
-- Add error handling for issues with loading the background image or saving the poster.
-- Improve the file naming system to handle cases where 'poster.png' already exists.
+## Built With
+
+- HTML
+- SCSS
+- JavaScript
+- [html2canvas](https://html2canvas.hertzen.com/)
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+## Acknowledgments
+
+- [html2canvas](https://html2canvas.hertzen.com/) for providing the library to capture HTML elements as images.
