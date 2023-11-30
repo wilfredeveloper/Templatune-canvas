@@ -7,14 +7,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./scss/main.scss">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
     <!-- Add a button to trigger the capture -->
     <button id="captureButton">Capture and Save</button>
-
     <main class="canvas">
-        <img src="./bg.jpg" alt="" class="">
+
+        <img src="./bg.jpg" alt="" class="bg">
+        <div class="guest-section">
+            <img src="https://i.ibb.co/M2Lyy3q/close-up.jpg" alt="" class="pfp">
+            <img src="../profile-overlay.png" alt="profile-overlay" class="profile-overlay">
+            <div class="color-overlay"></div>
+        </div>
+        <div class="guest-section-text">
+            <h5 class="guest-name">
+                John Doe
+            </h5>
+            <h6 class="guest-role">
+                Guest Speaker
+            </h6>
+        </div>
         <div class="header">
             <img src="../Logo-svg.svg" alt="GDSC LOGO" class="gdsc-logo">
             <h4 class="university-name">Maasai Mara University</h4>
@@ -44,30 +59,41 @@
     </main>
 
     <!-- Add these scripts in the head section of your HTML file -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://github.com/eKoopmans/html2canvas/releases/download/v1.0.0-alpha.12/html2canvas.js"></script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
 
     <!-- Add this script at the end of your body section -->
+
+    <!-- ... rest of your HTML ... -->
+
     <script>
         document.getElementById('captureButton').addEventListener('click', function() {
             // Select the element to be captured
             const elementToCapture = document.querySelector('.canvas');
 
-            // Use HTML2Canvas to capture the content
-            html2canvas(elementToCapture).then(function(canvas) {
-                // Convert the canvas to an image URL
-                const imgData = canvas.toDataURL('image/jpeg');
+            // Preload the image with an absolute path
+            const pfpImage = new Image();
+            pfpImage.crossOrigin = "Anonymous"; // Enable cross-origin requests
+            pfpImage.src = "https://i.ibb.co/M2Lyy3q/close-up.jpg";
 
-                // Create a link element and trigger a download
-                const link = document.createElement('a');
-                link.href = imgData;
-                link.download = 'captured_image.jpg';
-                link.click();
-            });
+            pfpImage.onload = function() {
+                // Wait a bit to ensure the image is fully loaded
+                setTimeout(function() {
+                    // Use HTML2Canvas to capture the content
+                    html2canvas(elementToCapture).then(function(canvas) {
+                        // Convert the canvas to an image URL
+                        const imgData = canvas.toDataURL('image/jpeg');
+
+                        // Create a link element and trigger a download
+                        const link = document.createElement('a');
+                        link.href = imgData;
+                        link.download = 'captured_image.jpg';
+                        link.click();
+                    });
+                }, 500); // Adjust the delay if needed
+            };
         });
     </script>
+
 
 
 </body>
