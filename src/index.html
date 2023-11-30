@@ -10,6 +10,9 @@
 </head>
 
 <body>
+    <!-- Add a button to trigger the capture -->
+    <button id="captureButton">Capture and Save</button>
+
     <main class="canvas">
         <img src="./bg.jpg" alt="" class="">
         <div class="header">
@@ -39,6 +42,33 @@
         <img src="../Socials bar.svg" alt="" class="socials">
         <span class="social-handle">@GDSC_MMARAU</span>
     </main>
+
+    <!-- Add these scripts in the head section of your HTML file -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://github.com/eKoopmans/html2canvas/releases/download/v1.0.0-alpha.12/html2canvas.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+    <!-- Add this script at the end of your body section -->
+    <script>
+        document.getElementById('captureButton').addEventListener('click', function() {
+            // Select the element to be captured
+            const elementToCapture = document.querySelector('.canvas');
+
+            // Use HTML2Canvas to capture the content
+            html2canvas(elementToCapture).then(function(canvas) {
+                // Convert the canvas to an image URL
+                const imgData = canvas.toDataURL('image/jpeg');
+
+                // Create a link element and trigger a download
+                const link = document.createElement('a');
+                link.href = imgData;
+                link.download = 'captured_image.jpg';
+                link.click();
+            });
+        });
+    </script>
+
 
 </body>
 
