@@ -6,9 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./scss/main.scss">
+    <link rel="stylesheet" href="./scss/main.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -65,6 +64,7 @@
 
     <!-- ... rest of your HTML ... -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
         document.getElementById('captureButton').addEventListener('click', function() {
             // Select the element to be captured
@@ -76,20 +76,17 @@
             pfpImage.src = "https://i.ibb.co/M2Lyy3q/close-up.jpg";
 
             pfpImage.onload = function() {
-                // Wait a bit to ensure the image is fully loaded
-                setTimeout(function() {
-                    // Use HTML2Canvas to capture the content
-                    html2canvas(elementToCapture).then(function(canvas) {
-                        // Convert the canvas to an image URL
-                        const imgData = canvas.toDataURL('image/jpeg');
+                // Use HTML2Canvas to capture the content
+                html2canvas(elementToCapture).then(function(canvas) {
+                    // Convert the canvas to an image URL
+                    const imgData = canvas.toDataURL('image/jpg');
 
-                        // Create a link element and trigger a download
-                        const link = document.createElement('a');
-                        link.href = imgData;
-                        link.download = 'captured_image.jpg';
-                        link.click();
-                    });
-                }, 500); // Adjust the delay if needed
+                    // Create a link element and trigger a download
+                    const link = document.createElement('a');
+                    link.href = imgData;
+                    link.download = 'captured_image.jpg';
+                    link.click();
+                });
             };
         });
     </script>
